@@ -111,7 +111,7 @@ module MakeInterval (Endpoint : ORDERED_TYPE) =
     let contains (intvl : interval) (x : Endpoint.t) : bool =
       match intvl with
       | Empty -> false
-      | Interval (a, b)-> a>=x && x <= b
+      | Interval (a, b)->  Endpoint.compare x a >= 0 && Endpoint.compare x b <= 0
 
     (* intersect intvl1 intvl2 -- Returns the intersection of `intvl1`
        and `intvl2` *)
